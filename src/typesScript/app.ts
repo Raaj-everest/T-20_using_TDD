@@ -20,3 +20,17 @@ export function probabilityOfPlayers(
     for (let ball: number = 0; ball < out; ball++) arrayOfProbabilities.push(7);
     return arrayOfProbabilities;
 }
+
+
+/* the above function takes the probabilities of the player in an order
+and return an array of length 100, which contains the score specified 
+according to the given probability
+
+for example: if we give the probabilities of a player as 
+const kirat=probabilityOfPlayers(5,30,25,10,15,1,9,5);
+then it return an array as
+[0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2,
+      2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3,
+       3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
+        5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7]   */
