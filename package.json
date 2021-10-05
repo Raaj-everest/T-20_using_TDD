@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "jest"
+    
   },
   "repository": {
     "type": "git",
