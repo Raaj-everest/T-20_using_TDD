@@ -38,6 +38,16 @@ test("gives the probability of platers as mentioned", () => {
      kirat.run();
      expect(kirat.NumberOfBallsPlayed).toBe(3);
    });
+   test("count the individual score of the player", () => {
+    var kirat = new batman("kirat",[5,30,25,10,15,1,9,5]);
+     const score1 = kirat.run();
+     const score2 = kirat.run();
+     if(score1<7||score2<7)
+     expect(kirat.ScoredRuns).toBe(score1+score2);
+
+   });
+
+
 
   
 

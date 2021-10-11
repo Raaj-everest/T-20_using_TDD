@@ -7,7 +7,7 @@ export class batman {
     this.prob = prob;
   }
   public batmanIsOut=false;
-  public batmanScoredRuns=0
+  public ScoredRuns=0
   public NumberOfBallsPlayed=0
   
 
@@ -32,7 +32,7 @@ run() {
     this.batmanIsOut=true;
   }
   if(score<7){
-    this.batmanScoredRuns += score;
+    this.ScoredRuns += score;
   }
   return score;
 
