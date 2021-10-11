@@ -20,7 +20,23 @@ export class batman {
   return arrayOfProbability;
 }
 
-  
+run() {
+  const runs: number = Math.floor(Math.random() * 100);
+  const score= (kirat.returnsArray(kirat.prob)[runs])
+ console.log(score);
+ if(score==7){
+   return "out";
+ }
+ if(score<7){
+  const add = (function () {
+    let runsScored=0;
+    return function () {runsScored += score; return runsScored}
+  })();
+  let scored =add();
+  return scored;
+ }
+
+}
 }
    
 var kirat = new batman("kirat",[5,30,25,10,15,1,9,5]);
