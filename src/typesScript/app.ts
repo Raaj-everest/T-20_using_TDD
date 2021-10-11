@@ -27,7 +27,7 @@ export class batman {
 run() {
   const runs: number = Math.floor(Math.random() * 100);
   const score= (this.returnsArray(this.prob)[runs])
-  
+  this.NumberOfBallsPlayed +=1;
   if(score==7){
     this.batmanIsOut=true;
   }
