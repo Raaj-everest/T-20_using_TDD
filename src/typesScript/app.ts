@@ -6,7 +6,11 @@ export class batman {
     this.name = name;
     this.prob = prob;
   }
+  public batmanIsOut=false;
+  public batmanScoredRuns=0
+  public NumberOfBallsPlayed=0
   
+
   returnsArray(prob:number[]){
   const arrayOfProbability:number[] = [];
   for (let ball: number = 0; ball < prob[0]; ball++) arrayOfProbability.push(0);
@@ -22,22 +26,24 @@ export class batman {
 
 run() {
   const runs: number = Math.floor(Math.random() * 100);
-  const score= (kirat.returnsArray(kirat.prob)[runs])
- console.log(score);
- if(score==7){
-   return "out";
- }
- if(score<7){
-  const add = (function () {
-    let runsScored=0;
-    return function () {runsScored += score; return runsScored}
-  })();
-  let scored =add();
-  return scored;
- }
+  const score= (this.returnsArray(this.prob)[runs])
+  
+  if(score==7){
+    this.batmanIsOut=true;
+  }
+  if(score<7){
+    this.batmanScoredRuns += score;
+  }
+  return score;
 
 }
+
+
+
+
 }
-   
+
+
 var kirat = new batman("kirat",[5,30,25,10,15,1,9,5]);
-console.log(kirat.returnsArray(kirat.prob));
+var dhoni = new batman("dhoni",[10,25,20,15,10,1,10]);
+   
