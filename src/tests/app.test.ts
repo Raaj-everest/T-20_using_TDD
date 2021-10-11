@@ -26,6 +26,19 @@ test("gives the probability of platers as mentioned", () => {
         expect(kirat.batmanIsOut).toBe(false);
         }
    });
+   test("counting the number of balls played by the player", () => {
+    var kirat = new batman("kirat",[5,30,25,10,15,1,9,5]);
+     kirat.run();
+     expect(kirat.NumberOfBallsPlayed).toBe(1);
+   });
+   test("counting the number of balls played by the player", () => {
+    var kirat = new batman("kirat",[5,30,25,10,15,1,9,5]);
+     kirat.run();
+     kirat.run();
+     kirat.run();
+     expect(kirat.NumberOfBallsPlayed).toBe(3);
+   });
+
   
 
   
