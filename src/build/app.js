@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.batman = void 0;
 /* the function takes the probabilities of the player in an order
 and return an array of length 100, which contains the score specified
 according to the given probability
@@ -41,7 +43,25 @@ class batman {
     print() {
         console.log(this.prob);
     }
+    score() {
+        const runs = Math.floor(Math.random() * 100);
+        const score = (kirat.returnsArray(kirat.prob)[runs]);
+        console.log(score);
+        if (score == 7) {
+            return "out";
+        }
+        if (score < 7) {
+            const add = (function () {
+                let runsScored = 0;
+                return function () { runsScored += score; return runsScored; };
+            })();
+            let scored = add();
+            return scored;
+        }
+    }
 }
+exports.batman = batman;
 var kirat = new batman("kirat", [5, 30, 25, 10, 15, 1, 9, 5]);
 kirat.print();
 console.log(kirat.returnsArray(kirat.prob));
+kirat.score();

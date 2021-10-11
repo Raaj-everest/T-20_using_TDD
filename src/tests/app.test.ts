@@ -15,6 +15,14 @@ test("gives the probability of platers as mentioned", () => {
     const score=(kirat.returnsArray(kirat.prob)[5]);
      expect(score).toBe(1);
    });
+   test("the score of the batsmen",()=>{
+    const runs: number = Math.floor(Math.random() * 100);
+    var kirat = new batman("kirat",[5,30,25,10,15,1,9,5]);
+    const score= (kirat.returnsArray(kirat.prob)[runs])
+    if(score==7){
+    expect(score).toBe("out")
+    }
+   });
 
 
 
