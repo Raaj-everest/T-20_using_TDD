@@ -1,4 +1,5 @@
-import { batman } from "../typesScript/app";
+import { batman, StrikeRotate } from "../typesScript/app";
+
 
 test("gives the probability of platers as mentioned", () => {
   var kirat = new batman("kirat", [5, 30, 25, 10, 15, 1, 9, 5]);
@@ -42,8 +43,13 @@ test("count the individual score of the player", () => {
   var kirat = new batman("kirat", [5, 30, 25, 10, 15, 1, 9, 5]);
   const score1 = kirat.run();
   const score2 = kirat.run();
-  if (score1 < 7 || score2 < 7) expect(kirat.ScoredRuns).toBe(score1 + score2);
+  if (score1 < 7 && score2 < 7) expect(kirat.ScoredRuns).toBe(score1 + score2);
   expect(kirat.ScoredRuns).toBe(score1+score2);
+});
+test("to rotate the players",()=>{
+    var A = [1, 2, 3, 4]
+   StrikeRotate(A);
+   expect(A).toMatchObject([2 ,1, 3, 4])
 });
 
 

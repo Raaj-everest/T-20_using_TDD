@@ -1,22 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.batman = void 0;
-/* the function takes the probabilities of the player in an order
-and return an array of length 100, which contains the score specified
-according to the given probability
-
-for example: if we give the probabilities of a player as
-const kirat=probabilityOfPlayers(5,30,25,10,15,1,9,5);
-then it return an array as
-[0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
- 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
- 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4,
- 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7]
-    according to the definition of probaility in the above array
-    there is 5% of probability to get "0" ,if we pick at random
-    there is 30% of probability to get "1", if we pick at random and so on..*/
+exports.StrikeRotate = exports.batsmanArray = exports.batman = void 0;
 class batman {
     constructor(name, prob) {
+        this.batmanIsOut = false;
+        this.ScoredRuns = 0;
+        this.NumberOfBallsPlayed = 0;
         this.name = name;
         this.prob = prob;
     }
@@ -40,28 +29,30 @@ class batman {
             arrayOfProbability.push(7);
         return arrayOfProbability;
     }
-    print() {
-        console.log(this.prob);
-    }
-    score() {
+    run() {
         const runs = Math.floor(Math.random() * 100);
-        const score = (kirat.returnsArray(kirat.prob)[runs]);
-        console.log(score);
+        const score = this.returnsArray(this.prob)[runs];
+        this.NumberOfBallsPlayed += 1;
         if (score == 7) {
-            return "out";
+            this.batmanIsOut = true;
         }
         if (score < 7) {
-            const add = (function () {
-                let runsScored = 0;
-                return function () { runsScored += score; return runsScored; };
-            })();
-            let scored = add();
-            return scored;
+            this.ScoredRuns += score;
         }
+        return score;
     }
 }
 exports.batman = batman;
 var kirat = new batman("kirat", [5, 30, 25, 10, 15, 1, 9, 5]);
-kirat.print();
-console.log(kirat.returnsArray(kirat.prob));
-kirat.score();
+var dhoni = new batman("dhoni", [10, 40, 20, 5, 10, 1, 4, 10]);
+var rumra = new batman("rumra", [20, 30, 25, 5, 5, 1, 4, 20]);
+var sashi = new batman("sashi", [30, 25, 5, 0, 5, 1, 4, 30]);
+exports.batsmanArray = [kirat, dhoni, rumra, sashi];
+console.log(exports.batsmanArray);
+function StrikeRotate() {
+    let x = 0, y = 1;
+    exports.batsmanArray[x] = exports.batsmanArray.splice(y, 1, exports.batsmanArray[x])[0];
+}
+exports.StrikeRotate = StrikeRotate;
+StrikeRotate();
+console.log(exports.batsmanArray);
