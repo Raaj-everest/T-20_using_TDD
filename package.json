@@ -4,7 +4,7 @@
   "description": "I am writing the t-20 assignment using TDD approach",
   "main": "app.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
     
   },
   "repository": {
