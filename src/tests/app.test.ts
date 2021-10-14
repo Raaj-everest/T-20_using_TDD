@@ -85,6 +85,15 @@ test("Which tell wether bangalore won if they reach target", () => {
     let checker = (kirat.ScoredRuns+rumra.ScoredRuns+sashi.ScoredRuns+dhoni.ScoredRuns)
     expect(score).toBe(checker);
   });
-  
+  test("checking two functions when integrated",()=>{
+    let batsmanArray = [kirat, dhoni, rumra, sashi];
+    //let kirat is out.
+    //the striker will be aleays in the first insex of the array,
+    out(batsmanArray);
+    StrikeRotate(batsmanArray);
+    // now the striker should be rumra
+    expect(batsmanArray[0]).toBe(rumra)
+  });
+
 
 

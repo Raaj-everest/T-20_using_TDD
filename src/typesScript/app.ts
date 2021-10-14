@@ -68,6 +68,7 @@ export class batman {
 const target = 40;
 let wicekts = 3;
 const TotalOversToPlay = 4;
+const totalNumberOfBalls= TotalOversToPlay*6;
 let teamscore = 0;
 let NumberOfBallsPlayedByTeam = 0;
 export var kirat = new batman("kirat Boli", [5, 30, 25, 10, 15, 1, 9, 5]);
@@ -115,7 +116,7 @@ export function scoreBoard(teamscore: number) {
   }
 }
 export function gamePlay(batsmanArray: any[]) {
-  for (let overs = 0; overs < 4; overs++) {
+  for (let overs = 0; overs < TotalOversToPlay; overs++) {
     console.log(
       TotalOversToPlay -
       overs +
@@ -134,9 +135,9 @@ export function gamePlay(batsmanArray: any[]) {
         console.log(
           overs + "." + balls + " ohhh!!!  " + batsmanArray[0].name + " is out "
         );
-        out(batsmanArray);
-        StrikeRotate(batsmanArray);
         if (wicekts > 0) {
+          out(batsmanArray);
+          StrikeRotate(batsmanArray);
           console.log("Now " + batsmanArray[0].name + " enterd to bat.");
         }
       } else {
@@ -162,8 +163,7 @@ export function gamePlay(batsmanArray: any[]) {
             " run"
           );
           StrikeRotate(batsmanArray);
-          if(NumberOfBallsPlayedByTeam<24){
-          console.log("strike rotated!!");}
+          
         } else if (singleBallScore == 3 || singleBallScore == 5) {
           console.log(
             overs +
@@ -176,8 +176,7 @@ export function gamePlay(batsmanArray: any[]) {
             " runs"
           );
           StrikeRotate(batsmanArray);
-          if(NumberOfBallsPlayedByTeam<24){
-          console.log("strike rotated!!");}
+          
         } else if (
           singleBallScore == 2 ||
           singleBallScore == 4 ||
@@ -200,10 +199,9 @@ export function gamePlay(batsmanArray: any[]) {
       break;
     }
     StrikeRotate(batsmanArray);
-    console.log("over completed");
   }
 
   return teamscore;
 }
-gamePlay(batsmanArray);
-scoreBoard(teamscore);
+const score=gamePlay(batsmanArray);
+scoreBoard(score);

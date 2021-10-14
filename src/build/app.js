@@ -65,6 +65,7 @@ exports.batman = batman;
 const target = 40;
 let wicekts = 3;
 const TotalOversToPlay = 4;
+const totalNumberOfBalls = TotalOversToPlay * 6;
 let teamscore = 0;
 let NumberOfBallsPlayedByTeam = 0;
 exports.kirat = new batman("kirat Boli", [5, 30, 25, 10, 15, 1, 9, 5]);
@@ -111,7 +112,7 @@ function scoreBoard(teamscore) {
 }
 exports.scoreBoard = scoreBoard;
 function gamePlay(batsmanArray) {
-    for (let overs = 0; overs < 4; overs++) {
+    for (let overs = 0; overs < TotalOversToPlay; overs++) {
         console.log(TotalOversToPlay -
             overs +
             " overs left." +
@@ -126,9 +127,9 @@ function gamePlay(batsmanArray) {
             if (singleBallScore == 7) {
                 wicekts -= 1;
                 console.log(overs + "." + balls + " ohhh!!!  " + batsmanArray[0].name + " is out ");
-                out(batsmanArray);
-                StrikeRotate(batsmanArray);
                 if (wicekts > 0) {
+                    out(batsmanArray);
+                    StrikeRotate(batsmanArray);
                     console.log("Now " + batsmanArray[0].name + " enterd to bat.");
                 }
             }
@@ -152,9 +153,6 @@ function gamePlay(batsmanArray) {
                         singleBallScore +
                         " run");
                     StrikeRotate(batsmanArray);
-                    if (NumberOfBallsPlayedByTeam < 24) {
-                        console.log("strike rotated!!");
-                    }
                 }
                 else if (singleBallScore == 3 || singleBallScore == 5) {
                     console.log(overs +
@@ -166,9 +164,6 @@ function gamePlay(batsmanArray) {
                         singleBallScore +
                         " runs");
                     StrikeRotate(batsmanArray);
-                    if (NumberOfBallsPlayedByTeam < 24) {
-                        console.log("strike rotated!!");
-                    }
                 }
                 else if (singleBallScore == 2 ||
                     singleBallScore == 4 ||
@@ -188,10 +183,9 @@ function gamePlay(batsmanArray) {
             break;
         }
         StrikeRotate(batsmanArray);
-        console.log("over completed");
     }
     return teamscore;
 }
 exports.gamePlay = gamePlay;
-gamePlay(exports.batsmanArray);
-scoreBoard(teamscore);
+const score = gamePlay(exports.batsmanArray);
+scoreBoard(score);
